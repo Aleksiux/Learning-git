@@ -1,0 +1,106 @@
+{
+  "data": {
+    "ip": "122.35.203.161",
+    "hostname": "122.35.203.161",
+    "type": "v4",
+    "range_type": {
+      "type": "PUBLIC",
+      "description": "Public address"
+    },
+    "connection": {
+      "asn": 17858,
+      "organization": "LG POWERCOMM",
+      "isp": "LG POWERCOMM",
+      "range": "122.32.0.0/12"
+    },
+    "location": {
+      "geonames_id": 6800519,
+      "latitude": 37.558860778808594,
+      "longitude": 126.99989318847656,
+      "zip": "",
+      "continent": {
+        "code": "AS",
+        "name": "Asia",
+        "name_translated": "Asia"
+      },
+      "country": {
+        "alpha2": "KR",
+        "alpha3": "KOR",
+        "calling_codes": [
+          "+82"
+        ],
+        "currencies": [
+          {
+            "symbol": "\u20a9",
+            "name": "South Korean Won",
+            "symbol_native": "\u20a9",
+            "decimal_digits": 0,
+            "rounding": 0,
+            "code": "KRW",
+            "name_plural": "South Korean won"
+          }
+        ],
+        "emoji": "\ud83c\uddf0\ud83c\uddf7",
+        "ioc": "KOR",
+        "languages": [
+          {
+            "name": "Korean",
+            "name_native": "\uc870\uc120\ub9d0 (\u671d\u9bae\u8a9e)"
+          }
+        ],
+        "name": "South Korea",
+        "name_translated": "South Korea",
+        "timezones": [
+          "Asia/Seoul"
+        ],
+        "is_in_european_union": false,
+        "fips": "KS",
+        "geonames_id": 1835841,
+        "hasc_id": "KR",
+        "wikidata_id": "Q884"
+      },
+      "city": {
+        "fips": null,
+        "alpha2": null,
+        "geonames_id": 1835848,
+        "hasc_id": null,
+        "wikidata_id": "Q8684",
+        "name": "Seoul",
+        "name_translated": "Seoul"
+      },
+      "region": {
+        "fips": "KS11",
+        "alpha2": "KR-11",
+        "geonames_id": 1835847,
+        "hasc_id": "KR.SO",
+        "wikidata_id": "Q8684",
+        "name": "Seoul",
+        "name_translated": "Seoul"
+      }
+    },
+    "tlds": [
+      ".kr"
+    ],
+    "timezone": {
+      "id": "Asia/Seoul",
+      "current_time": "2023-01-17T22:40:17+09:00",
+      "code": "KST",
+      "is_daylight_saving": false,
+      "gmt_offset": 32400
+    },
+    "security": {
+      "is_anonymous": null,
+      "is_bot": null,
+      "is_known_attacker": null,
+      "is_proxy": null,
+      "is_spam": null,
+      "is_tor": null,
+      "proxy_type": null,
+      "threat_score": null
+    },
+    "domains": {
+      "count": null,
+      "domains": []
+    }
+  }
+}

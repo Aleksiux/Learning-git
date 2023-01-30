@@ -4,6 +4,8 @@ import time
 import requests
 
 
+
+
 def return_png(times):
     for _ in range(times):
         r = requests.get('https://cataas.com/cat')
@@ -24,7 +26,7 @@ def return_server_from_url(*args):
 delfi = 'http://delfi.lt'
 min15 = 'http://15min.lt'
 skelbiult = 'http://skelbiu.lt'
-
+return_server_from_url('https://pagalba.ignitis.lt/8673637288290/?k=93747963')
 # return_server_from_url(delfi, skelbiult, min15)
 
 
@@ -38,4 +40,4 @@ def return_weather(city):
     temperature = pattern2.findall(a)
     print(f'It is now {temperature[0]} degrees in {city.capitalize()}')
 
-return_weather("vilnius")
+# return_weather("vilnius")
