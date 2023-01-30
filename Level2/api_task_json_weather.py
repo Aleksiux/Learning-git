@@ -5,8 +5,8 @@ import requests
 ip_list = ['122.35.203.161', '174.217.10.111', '187.121.176.91', '176.114.85.116', '174.59.204.133', '54.209.112.174',
            '109.185.143.49', '176.114.253.216', '210.171.87.76', '24.169.250.142']
 
-key_ip = 'BD9wolml7hpKG7eXE9TnjQV1FWJWWIkTFJhS3Zrz'
-key_weather = 'bd3b94b3f971d1f5138d6fc24342aba5'
+key_ip = 'apikey'
+key_weather = 'apikey'
 url_ip = "https://api.ipbase.com/v2/info"
 url_weather = 'https://api.openweathermap.org/data/2.5/weather'
 fieldname = ['IP', 'City', 'Country', 'Temp', 'Weather']
