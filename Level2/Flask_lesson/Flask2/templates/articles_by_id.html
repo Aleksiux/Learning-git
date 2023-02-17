@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+{% for dictionary in data %}
+    <h2> {{dictionary['id']}} </h2>
+    <h3> {{dictionary['date']}} - {{dictionary['author']}} </h3>
+    <p>  {{dictionary['text'][:30]}}
+        <a href="{{ url_for('article_by_id', id=dictionary['id'], date=dictionary['date']) }}">... read more</a>
+    </p>
+{% endfor %}
+
+{% endblock %}

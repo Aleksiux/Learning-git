@@ -35,8 +35,8 @@ SPACE = pygame.transform.scale(pygame.image.load(os.path.join("space.png")), (WI
 winner_sound_1 = pygame.mixer.Sound(os.path.join('sounds/laughing.mp3'))
 winner_sound_2 = pygame.mixer.Sound(os.path.join('sounds/what_the_hell.mp3'))
 winner_sound_3 = pygame.mixer.Sound(os.path.join('sounds/sigma.mp3'))
-winner_sound_4 = pygame.mixer.Sound(os.path.join('sounds/wut_the_heel.mp3'))
-winner_sound = [winner_sound_1, winner_sound_2, winner_sound_3, winner_sound_4]
+winner_sound = [winner_sound_1, winner_sound_2, winner_sound_3]
+
 
 def draw_window(blue, red, blue_bullets, red_bullets, blue_health, red_health):
     WIN.blit(SPACE, (0, 0))

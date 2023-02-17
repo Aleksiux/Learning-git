@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block content %}
+<form method="post" action="{{ url_for('yt_downloader') }}">
+    {{ form.csrf_token }}
+    <div class="form-group col-md-6">
+        {{ form.downloader.label(class="form-control-label") }}
+        {{ form.downloader(class="form-control") }}
+        {% if form.downloader.errors %}
+            {% for error in form.downloader.errors %}
+                <small style="color:red">{{ error }}</small>
+            {% endfor %}
+        {% endif %}
+    </div>
+    {{ form.submit }}
+</form>
+{% endblock %}

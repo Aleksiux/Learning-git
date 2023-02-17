@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    {% for dictionary in data %}
+        {% if dictionary['id'] == id_unique %}
+            <h2>{{dictionary['id']}}</h2>
+            <h2>{{dictionary['date']}}</h2>
+            <h2>{{dictionary['title']}}</h2>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

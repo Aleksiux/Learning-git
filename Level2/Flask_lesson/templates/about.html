@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for dictionary in data%}
+        <h2> User name:{{dictionary['f_name']}}, Last Name: {{dictionary['l_name']}}, Pass: {{dictionary['password']}}</h2>
+    {% endfor %}
+<a href="/"><h1>HOME</h1></a>
+</body>
+</html>

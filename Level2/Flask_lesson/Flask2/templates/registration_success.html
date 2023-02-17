@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<h1>You are registered user now! </h1>
+<p>Email: {{form.email.data}}</p>
+<p>Password: {{form.password.data}}</p>
+<p>Address: {{form.address.data}}</p>
+<p>Address2: {{form.address2.data}}</p>
+<p>City: {{form.city.data}}</p>
+<p>State: {{form.state.data}}</p>
+<p>Zip code: {{form.zip.data}}</p>
+<p>Selection: {{form.select.data}}</p>
+
+{% endblock %}

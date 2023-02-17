@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    {% for dictionary in data %}
+        {% if dictionary['title'] == article_name %}
+            <h2>{{dictionary['name']}}</h2>
+            <h2>{{dictionary['text']}}</h2>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
