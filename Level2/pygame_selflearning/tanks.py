@@ -37,34 +37,27 @@ winner_sound_2 = pygame.mixer.Sound(os.path.join('sounds/what_the_hell.mp3'))
 winner_sound_3 = pygame.mixer.Sound(os.path.join('sounds/sigma.mp3'))
 winner_sound = [winner_sound_1, winner_sound_2, winner_sound_3]
 
+rot = 0
+
 
 def draw_window(blue, red, blue_bullets, red_bullets, blue_health, red_health):
     WIN.blit(SPACE, (0, 0))
     pygame.draw.rect(WIN, BLACK, BORDER)
-
     blue_health_text = HEALTH_FONT.render(f"Health:{str(blue_health)}", 1, WHITE)
     red_health_text = HEALTH_FONT.render(f"Health:{str(red_health)}", 1, WHITE)
     WIN.blit(blue_health_text, (10, 10))
     WIN.blit(red_health_text, (WIDTH - red_health_text.get_width() - 10, 10))
-    WIN.blit(BLUE_TANK, (blue.x, blue.y))
+    # WIN.blit(BLUE_TANK, (blue.x, blue.y))
     WIN.blit(RED_TANK, (red.x, red.y))
+    image_copy_blue = pygame.transform.rotate(BLUE_TANK, rot)
+    WIN.blit(image_copy_blue,
+             ((blue.x + 50) - (image_copy_blue.get_width() / 2), (blue.y + 40) - (image_copy_blue.get_height() / 2)))
 
     for bullet in blue_bullets:
         pygame.draw.rect(WIN, BLUE, bullet)
     for bullet in red_bullets:
         pygame.draw.rect(WIN, RED, bullet)
     pygame.display.update()
-
-
-def handle_blue_movement(keys_pressed, blue):
-    if keys_pressed[pygame.K_a] and blue.x - VEL > -20:  # LEFT KEY
-        blue.x -= VEL
-    if keys_pressed[pygame.K_d] and blue.x + VEL + blue.width < BORDER.x + 20:  # RIGHT KEY
-        blue.x += VEL
-    if keys_pressed[pygame.K_w] and blue.y - VEL > -20:  # UP KEY
-        blue.y -= VEL
-    if keys_pressed[pygame.K_s] and blue.y + VEL + blue.height < HEIGHT + 20:  # DOWN KEY
-        blue.y += VEL
 
 
 def handle_bullets(blue_bullets, red_bullets, blue, red):
@@ -83,6 +76,20 @@ def handle_bullets(blue_bullets, red_bullets, blue, red):
             red_bullets.remove(bullet)
         elif bullet.x < 0:
             red_bullets.remove(bullet)
+
+
+def handle_blue_movement(keys_pressed, blue):
+    global rot
+    if keys_pressed[pygame.K_a] and blue.x - VEL > -20:  # LEFT KEY
+        # blue.x -= VEL
+        rot += 5
+    if keys_pressed[pygame.K_d] and blue.x + VEL + blue.width < BORDER.x + 20:  # RIGHT KEY
+        # blue.x += VEL
+        rot -= 5
+    if keys_pressed[pygame.K_w] and blue.y - VEL > -20:  # UP KEY
+        blue.y -= VEL
+    if keys_pressed[pygame.K_s] and blue.y + VEL + blue.height < HEIGHT + 20:  # DOWN KEY
+        blue.y += VEL
 
 
 def handle_red_movement(keys_pressed, red):
@@ -112,14 +119,14 @@ def main():
     red_bullets = []
     red_health = 10
     blue_health = 10
-
     clock = pygame.time.Clock()
-    run = True
-    while run:
+    running = True
+    rot = 0
+    while running:
         clock.tick(FPS)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                run = False
+                running = False
                 pygame.quit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_j and len(blue_bullets) < MAX_BULLETS:
@@ -137,7 +144,6 @@ def main():
                 red_health -= 1
                 BULLET_HIT_SOUND.play()
 
-        # loser = [key for key, value in tank_health.items() if value <= 0]
         winner_text = ""
         if blue_health <= 0:
             winner_text = "Red Wins game!"
@@ -148,9 +154,10 @@ def main():
             break
         keys_pressed = pygame.key.get_pressed()
         handle_blue_movement(keys_pressed, blue)
-        handle_bullets(blue_bullets, red_bullets, blue, red)
         handle_red_movement(keys_pressed, red)
+        handle_bullets(blue_bullets, red_bullets, blue, red)
         draw_window(blue, red, blue_bullets, red_bullets, blue_health, red_health)
+        pygame.display.flip()
     main()
 
 
