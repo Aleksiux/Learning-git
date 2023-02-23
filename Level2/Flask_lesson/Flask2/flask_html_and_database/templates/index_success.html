@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>The form has been successfully completed</h1>
+
+<form method="post" action="{{ url_for('main') }}">
+    {{ form.csrf_token }}
+
+{% for dictionary in data %}
+<br>
+
+<p>{{dictionary['id']}}. {{dictionary['name']}} {{dictionary['surname']}}, {{dictionary['date']}}</p>
+{{dictionary['message']}}
+<hr>
+</form>
+{% endfor %}
+
+{% endblock %}

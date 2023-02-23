@@ -1,8 +1,6 @@
 from pytube import YouTube
 import webbrowser
-from time import sleep
 from tkinter import filedialog
-from tkinter import Tk
 
 
 def Browse():

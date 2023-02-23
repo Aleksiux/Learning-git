@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block content %}
+<style>
+    h3{
+    text-align:center;
+    }
+    p{
+    text-align:center;
+    }
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="30;url=http://127.0.0.1:8000/about"/>
+<h3>MEMES</h3>
+
+<p>
+    <img src="{{meme_pic}}">
+</p>
+<p> Current subreddit: {{subreddit}}</p>
+
+{% endblock %}

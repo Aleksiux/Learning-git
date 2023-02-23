@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post" action="{{ url_for('main') }}">
+    {{ form.csrf_token }}
+    <div class="form-group col-md-6">
+        {{ form.name.label(class="form-control-label") }}
+        {{ form.name(class="form-control") }}
+        {% if form.name.errors %}
+        {% for error in form.name.errors %}
+        <small style="color:red">{{ error }}</small>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="form-group col-md-6">
+        {{ form.surname.label(class="form-control-label") }}
+        {{ form.surname(class="form-control") }}
+        {% if form.surname.errors %}
+        {% for error in form.surname.errors %}
+        <small style="color:red">{{ error }}</small>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form.message.label(class="form-control-label") }}
+        {{ form.message(class="form-control", rows="5") }}
+        {% if form.message.errors %}
+        {% for error in form.message.errors %}
+        <small style="color:red">{{ error }}</small>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <br>
+    {{ form.submit }}
+</form>
+
+<form method="post" action="{{ url_for('main') }}">
+    {{ form.csrf_token }}
+{% for dictionary in data%}
+<br>
+<p>{{dictionary['id']}}. {{dictionary['name']}} {{dictionary['surname']}}, {{dictionary['date']}}</p>
+{{dictionary['message']}}
+<hr>
+{% endfor %}
+</form>
+{% endblock %}
