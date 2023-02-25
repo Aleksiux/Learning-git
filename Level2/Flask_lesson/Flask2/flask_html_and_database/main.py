@@ -19,9 +19,9 @@ def main():
         db.session.add(person)
         db.session.commit()
         data = Person.query.order_by(Person.id.desc()).all()  # or Person.query.all()[::-1]
-        return render_template('index_success.html', form=form, data=data)
+        return render_template('index.html', form=form, data=data)
     data = Person.query.order_by(Person.id.desc()).all()
-    return render_template('index.html', form=form, data=data)
+    return render_template('income_form.html', form=form, data=data)
 
 
 @app.route("/about")

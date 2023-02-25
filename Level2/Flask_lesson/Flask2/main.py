@@ -12,7 +12,7 @@ app.config['SECRET_KEY'] = SECRET_KEY
 
 @app.route("/")
 def main():
-    return render_template('index.html')
+    return render_template('income_form.html')
 
 
 @app.route("/about")

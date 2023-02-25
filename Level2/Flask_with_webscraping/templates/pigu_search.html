@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<link rel="stylesheet" href="/static/main.css">
+<form method="post" action="{{ url_for('pigu_search') }}">
+    {{ form.csrf_token }}
+    <div class="form-group col-md-4" id="search">
+        {{ form.gpu_name.label(class="form-control-label") }}
+        {{ form.gpu_name(class="form-control") }}
+        {% if form.gpu_name.errors %}
+        {% for error in form.gpu_name.errors %}
+        <small style="color:red">{{ error }}</small>
+        {% endfor %}
+        {% endif %}
+    </div>
+      <br>
+    <div id="submit">
+    {{ form.submit }}
+        </div>
+
+        <h1>Gpu's</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">GPU name</th>
+            <th scope="col">GPU price</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for gpu in data %}
+        <tr>
+            <td>{{ gpu.name }}</td>
+            <td>{{ gpu.price }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+</form>
+{% endblock %}

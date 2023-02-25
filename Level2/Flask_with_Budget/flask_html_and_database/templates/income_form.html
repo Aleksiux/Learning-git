@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post" action="{{ url_for('income') }}">
+    {{ form.csrf_token }}
+    <div class="form-group col-md-6">
+        {{ form.val.label(class="form-control-label") }}
+        {{ form.val(class="form-control") }}
+        {% if form.val.errors %}
+        {% for error in form.val.errors %}
+        <small style="color:red">{{ error }}</small>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="form-group col-md-6">
+        {{ form.sender.label(class="form-control-label") }}
+        {{ form.sender(class="form-control") }}
+        {% if form.sender.errors %}
+        {% for error in form.sender.errors %}
+        <small style="color:red">{{ error }}</small>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="form-group col-md-6">
+        {{ form.extra_info.label(class="form-control-label") }}
+        {{ form.extra_info(class="form-control") }}
+        {% if form.extra_info.errors %}
+        {% for error in form.extra_info.errors %}
+        <small style="color:red">{{ error }}</small>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <br>
+    {{ form.submit }}
+</form>
+{% endblock %}

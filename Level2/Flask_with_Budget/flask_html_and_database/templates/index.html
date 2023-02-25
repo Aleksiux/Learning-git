@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="post" action="{{ url_for('main') }}">
+    {{ form1.csrf_token }}
+    {{ form2.csrf_token }}
+<br>
+    <br>
+    <h1>Income:</h1>
+    <table class="table table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Sender</th>
+            <th scope="col">Extra info</th>
+            <th scope="col">Income</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for income in income_data %}
+        <tr>
+            <td>{{ income.sender }}</td>
+            <td>{{ income.extra_info }}</td>
+            <td>{{ income.val }} €</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<br>
+    <br>
+    <br>
+    <h1>Expenses:</h1>
+    <table class="table table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Payment method</th>
+            <th scope="col">Product service</th>
+            <th scope="col">Expenses</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for expenses in expenses_data %}
+        <tr>
+            <td>{{ expenses.payment_method }}</td>
+            <td>{{ expenses.product_service }}</td>
+            <td>{{ expenses.val }} €</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<br>
+<br>
+    <h1>Balance:</h1>
+    <h1>{{ result }} €</h1>
+
+
+</form>
+{% endblock %}
