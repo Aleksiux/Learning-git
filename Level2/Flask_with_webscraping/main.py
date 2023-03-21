@@ -4,14 +4,16 @@ from forms import GpuSearch
 from gpu_scraper import gpu_scraping
 from app import db, app, Gpu
 from crud import query_gpu
+from weather import return_weather
 
 SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
-
+weather = return_weather("kaunas")
 
 @app.route("/")
 def main():
-    return render_template('index.html')
+    # weather = return_weather("kaunas")
+    return render_template('index.html', weather=weather)
 
 
 @app.route('/pigu_search', methods=['GET', 'POST'])
@@ -25,9 +27,9 @@ def pigu_search():
             db.session.add(gpu)
             db.session.commit()
         data = query_gpu
-        return render_template('pigu_search.html', form=form, data=data)
+        return render_template('pigu_search.html', form=form, data=data, weather=weather)
     data = query_gpu
-    return render_template('pigu_search.html', form=form, data=data)
+    return render_template('pigu_search.html', form=form, data=data, weather=weather)
 
 
 if __name__ == "__main__":

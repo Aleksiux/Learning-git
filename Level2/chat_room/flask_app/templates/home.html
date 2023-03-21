@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<link rel="stylesheet" href="/static/main.css">
+<form method="post" action="{{ url_for('home') }}">
+    {{ form.csrf_token }}
+    <div class="form-group col-md-4" id="name">
+        {{ form.name.label(class="form-control-label") }}
+        {{ form.name(class="form-control") }}
+        {% if form.name.errors %}
+        {% for error in form.name.errors %}
+        <small style="color:red">{{ error }}</small>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="form-group col-md-4" id="room_code">
+        {{ form.room_code.label(class="form-control-label") }}
+        {{ form.room_code(class="form-control") }}
+        {% if form.room_code.errors %}
+        {% for error in form.room_code.errors %}
+        <small style="color:red">{{ error }}</small>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <br>
+    <div id="submit_join">
+        {{ form.submit_join }}
+    </div>
+    <br>
+    <div id="submit_create">
+        {{ form.submit_create }}
+    </div>
+
+    {% if error %}
+    <ul>
+        <li>
+            {{ error }}
+        </li>
+    </ul>
+    {% endif %}
+
+
+</form>
+{% endblock %}

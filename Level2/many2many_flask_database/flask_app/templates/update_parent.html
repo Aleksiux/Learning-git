@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Edit parent: </h2>
+<form method="post" action="#">
+    {{ form.csrf_token }}
+    <div class="form-group">
+        {{ form.name.label(class="form-control-label") }}
+        {{ form.name(class="form-control", value=parent.name) }}
+    </div>
+    <div class="form-group">
+        {{ form.surname.label(class="form-control-label") }}
+        {{ form.surname(class="form-control", value=parent.surname) }}
+    </div>
+    <div class="form-group">
+        {{ form.age.label(class="form-control-label") }}
+        {{ form.age(class="form-control", value=parent.age) }}
+    </div>
+    <div class="form-group">
+        {{ form.children.label(class="form-control-label") }}
+        {{ form.children(class="form-control", value=parent.children) }}
+    </div>
+    {{ form.submit }}
+</form>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Parent / child</h1>
+
+<p><a href="{{ url_for('add_parent') }}">Add parent</a> </p>
+<p><a href="{{ url_for('add_children') }} ">Add child</a> </p>
+
+
+
+{% endblock %}

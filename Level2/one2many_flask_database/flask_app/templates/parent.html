@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% for parent in parents %}
+
+Name: {{parent.name}}
+<br>
+Surname: {{parent.surname}}
+<br>
+Age: {{parent.age}}
+<br>
+{% for child in parent.children %}
+Child name: {{ child.name }}
+{% endfor %}
+<br>
+<hr>
+{% endfor %}
+
+{% endblock %}

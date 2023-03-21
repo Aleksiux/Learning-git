@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% for parent in parents %}
+<h2> Parent page </h2>
+{{parent.name}}
+{{parent.surname}}
+{{parent.age}}
+<br>
+{% for child in parents.children %}
+<b>{{child.name}}</b>
+<br>
+{% endfor %}
+<a href="{{ url_for('delete_parent', id=parent.id) }}">Delete parent</a>
+<br>
+<a href="{{ url_for('update_parent', id=parent.id) }}">Edit parent</a>
+{% endfor %}
+
+{% endblock %}
