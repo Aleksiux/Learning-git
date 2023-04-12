@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Edit teacher: </h2>
+<form method="post" action="#">
+    {{ form.csrf_token }}
+    <div class="form-group">
+        {{ form.name.label(class="form-control-label") }}
+        {{ form.name(class="form-control", value=professor.name) }}
+    </div>
+    <div class="form-group">
+        {{ form.surname.label(class="form-control-label") }}
+        {{ form.surname(class="form-control", value=professor.surname) }}
+    </div>
+    <div class="form-group">
+        {{ form.experience.label(class="form-control-label") }}
+        {{ form.experience(class="form-control", value=professor.experience) }}
+    </div>
+    <div class="form-group">
+        {{ form.lectures.label(class="form-control-label") }}
+        {{ form.lectures(class="form-control", value=professor.lectures) }}
+    </div>
+    {{ form.submit }}
+</form>
+{% endblock %}

@@ -11,7 +11,7 @@ def Browse():
 def Download(url):
     browse = Browse()
     yt = YouTube(url)
-    yt = yt.streams.get_audio_only()
+    yt = yt.streams.get_highest_resolution()
     try:
         if browse != "":
             yt.download(output_path=browse)

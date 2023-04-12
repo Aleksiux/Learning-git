@@ -13,7 +13,8 @@ class ParentForm(FlaskForm):
     name = StringField('Name', [DataRequired()])
     surname = StringField('Surname', [DataRequired()])
     age = IntegerField('Age', [DataRequired()])
-    children = QuerySelectField(query_factory=child_query, allow_blank=True, get_label='name', get_pk=lambda obj: str(obj))
+    children = QuerySelectField(query_factory=child_query, allow_blank=True, get_label='name',
+                                get_pk=lambda obj: str(obj))
     submit = SubmitField('Submit')
 
 

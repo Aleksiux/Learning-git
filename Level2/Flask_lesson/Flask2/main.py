@@ -12,7 +12,7 @@ app.config['SECRET_KEY'] = SECRET_KEY
 
 @app.route("/")
 def main():
-    return render_template('income_form.html')
+    return render_template('index.html')
 
 
 @app.route("/about")
@@ -78,7 +78,7 @@ def index():
         text = request.form['text']
         name = request.form['name']
         data.append({
-            # 'id': max([int(d['id']) for d in data]) + 1,
+            'id': max([int(d['id']) for d in data]) + 1,
             'date': date,
             'author': author,
             'name': name,
@@ -89,4 +89,4 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=8080)
+    app.run(host='192.168.1.232', port=8080)

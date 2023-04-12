@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Experience</th>
+            <th scope="col">Lectures</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for professor in professors %}
+        <tr>
+            <td>{{ professor.name }}</td>
+            <td>{{ professor.surname }}</td>
+            <td>{{ professor.experience }} <a href="{{ url_for('update_professor', id=professor.id) }}">Edit professor </a> <br>
+                <a href="{{ url_for('delete_professor', id=professor.id) }}">Delete professor</a> </td>
+            {% for lecture in professor.lectures %}
+            <td> {{ lecture.name }} </td>
+
+        </tr>
+            {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

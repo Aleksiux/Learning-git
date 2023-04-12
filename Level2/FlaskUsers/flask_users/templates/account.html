@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<h1> Welcome: </h1>
+<img class="rounded-circle account-img" src="{{ photo }}">
+<p> Name {{ current_user.first_name }}  Last name: {{ current_user.last_name }}</p>
+<p> Username {{ current_user.username }}</p>
+<p> Email {{ current_user.email }}</p>
+<p><a href="{{ url_for('update_account') }}"> Update account </a></p>
+{% endblock %}

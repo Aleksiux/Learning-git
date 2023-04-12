@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Lectures name</th>
+            <th scope="col">Students</th>
+            <th scope="col">Professor name</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{ lectures }}
+        {% for lecture_item in lectures %}
+        <tr>
+            <td>{{ lecture_item['lecture_name'] }}</td>
+            {% for student in lecture_item['students'] %}
+            <td>{{ student['student_name'] }} {{ student['student_surname'] }},</td>
+            <td>{{ lecture_item['prof_name'] }} {{ lecture_item['prof_surname'] }}  <a href="{{ url_for('update_lecture', id=lecture_item['id']) }}">Edit </a> </td>
+        </tr>
+        {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
