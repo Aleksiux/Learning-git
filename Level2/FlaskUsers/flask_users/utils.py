@@ -2,6 +2,8 @@ import os
 import secrets
 from PIL import Image
 from flask import url_for
+import random
+import string
 
 from Level2.FlaskUsers.flask_users import app
 from email.message import EmailMessage
@@ -39,3 +41,13 @@ def send_reset_email(user):
     smtp.quit()
 
 
+rooms = {}
+
+
+def generate_unique_code(length):
+    while True:
+        letters = string.ascii_uppercase
+        room_code = ''.join(random.choice(letters) for _ in range(length))
+        if room_code not in rooms:
+            break
+    return room_code
